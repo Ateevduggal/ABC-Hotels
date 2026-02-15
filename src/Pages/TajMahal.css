@@ -1,0 +1,549 @@
+/* Container Logic */
+.taj-page-wrapper {
+  background-color: #fff;
+  color: #1a1a1a;
+}
+
+.taj-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* 1. HERO SECTION */
+.taj-hero-section {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+}
+
+.taj-hero-parallax-layer {
+  background-image: url("https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=876&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Necessary for absolute overlay */
+}
+
+.taj-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Using a gradient: slightly darker at top/bottom for text legibility, 
+     clearer in the middle for the monument */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+.taj-hero-content {
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  z-index: 2; /* Ensures text stays above the overlay */
+}
+
+.taj-hero-title {
+  /* Using the Playfair Display font as per your reference */
+  font-family: "Playfair Display", serif;
+  font-size: 5rem;
+  font-weight: 700; /* Bold weight matching your "Signature Dishes" screenshot */
+  margin: 0;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle depth for extra legibility */
+}
+
+@media (max-width: 768px) {
+  .taj-hero-title {
+    padding: 0 1rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+}
+
+/* 2. HISTORY SECTION */
+.taj-history-section {
+  padding: 3rem;
+  background-color: #fcfbf7;
+  overflow: hidden;
+}
+
+.taj-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.taj-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Left side */
+.taj-history-heading {
+  color: var(--theme-primary);
+  line-height: 1.1;
+  margin-bottom: 2rem;
+}
+
+.taj-history-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+/* Right Side */
+.taj-history-visual-wrapper {
+  position: relative;
+  padding: 20px;
+}
+
+.taj-image-frame {
+  position: relative;
+  z-index: 2;
+}
+
+.taj-history-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(114, 38, 38, 0.1);
+  transition: transform 0.6s ease;
+}
+
+.taj-image-border-accent {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  bottom: 15px;
+  left: 15px;
+  border: 2px solid var(--theme-secondary);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.taj-history-visual-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 100px;
+  height: 100px;
+  border-top: 4px solid var(--accent);
+  border-right: 4px solid var(--accent);
+  z-index: 3;
+}
+
+@media (max-width: 768px) {
+  .taj-grid-2 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .taj-history-heading {
+    text-align: center;
+  }
+
+  .taj-history-visual-wrapper {
+    order: 2;
+    margin: 2rem 0;
+  }
+
+  .taj-history-content {
+    order: 3;
+  }
+
+  .taj-history-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* 3. FEEDBACK SECTION */
+.taj-feedback-section {
+  padding: 3rem;
+  background-color: var(--bg-secondary);
+}
+
+.taj-feedback-card {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.taj-quote {
+  font-size: 2rem;
+  font-style: italic;
+  color: var(--theme-primary);
+  margin-bottom: 1rem;
+}
+
+.taj-author {
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* 4. ITINERARY SECTION */
+.iti-section {
+  padding: 3rem;
+  background-color: #fcfbf7;
+}
+
+.iti-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Typography matching the uploaded photo style */
+.iti-main-title,
+.iti-step-title {
+  color: var(--theme-primary);
+  font-weight: 700;
+}
+
+.iti-main-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Grid */
+.iti-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+}
+
+/* Timeline/List */
+.iti-entry {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.iti-axis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 60px;
+}
+
+.iti-time {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--theme-secondary);
+}
+
+.iti-line {
+  width: 1px;
+  flex-grow: 1;
+  background-color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+.iti-step-title {
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.iti-location {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.iti-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #5c6e60;
+}
+
+/* Image Column (Static, No Parallax, No Transitions) */
+.iti-image-column {
+  position: relative;
+}
+
+.iti-stack {
+  position: sticky;
+  top: 5rem;
+}
+
+.iti-frame {
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  /* Removed all transitions and hover effects */
+}
+
+.iti-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Static Overlapping Layout */
+.iti-frame-1 {
+  width: 90%;
+  margin-left: auto;
+}
+
+.iti-frame-2 {
+  width: 75%;
+  margin-top: -20%;
+  position: relative;
+  z-index: 2;
+}
+
+.iti-frame-3 {
+  width: 85%;
+  margin-top: -15%;
+  margin-left: 15%;
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 868px) {
+  .iti-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .iti-main-title {
+    text-align: center;
+  }
+
+  .iti-image-column {
+    order: 2;
+    margin: 2rem 0;
+  }
+
+  .iti-text-column {
+    order: 3;
+  }
+
+  .iti-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* 5. The Artisan’s Legacy */
+.legacy-section {
+  padding: 0 3rem;
+}
+
+.legacy-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* CENTERED HEADER */
+.legacy-header {
+  margin-bottom: 3rem;
+  text-align: center; /* Perfectly centered as requested */
+}
+
+.legacy-main-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #722626; /* var(--theme-primary) */
+  font-size: 3.5rem;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Layout Grid */
+.legacy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+/* Content Area */
+.legacy-item {
+  margin-bottom: 3.5rem;
+}
+
+.legacy-item-label {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #8abf9d; /* var(--theme-secondary) */
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.legacy-item-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.legacy-item-desc {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #5c6e60;
+  max-width: 480px;
+}
+
+.legacy-visual-wrapper {
+  position: relative;
+}
+
+.legacy-image-frame {
+  position: relative;
+  z-index: 2;
+}
+
+.legacy-main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.legacy-border-accent {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  bottom: 15px;
+  left: 15px;
+  border: 2px solid #8abf9d; /* var(--theme-secondary) */
+  z-index: -1;
+}
+
+@media (max-width: 1024px) {
+  .legacy-item-desc {
+    font-size: 0.95rem;
+  }
+
+  .legacy-main-image {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .legacy-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .legacy-main-title {
+    text-align: center;
+  }
+
+  .legacy-visual-wrapper {
+    order: 2;
+    margin: 2rem 0;
+  }
+
+  .legacy-content-stack {
+    order: 3;
+  }
+
+  .legacy-main-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* 6. GALLERY SECTION */
+.sq-gal-section {
+  padding: 2rem 1rem 1rem 1rem;
+  background-color: #fcfbf7;
+}
+
+.sq-gal-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10px; /* Minimal side padding */
+}
+
+.sq-gal-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sq-gal-title {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: #722626;
+  font-size: 3.5rem;
+}
+
+/* SQUARE GRID LOGIC */
+.sq-gal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+  gap: 10px; /* Minimum padding/gap between photos */
+}
+
+.sq-gal-item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Forces square shape */
+  overflow: hidden;
+  background-color: #ffffff; /* White background for "contained" images */
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sq-gal-image-box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sq-gal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease; /* Smooth hover transition */
+}
+
+/* Hover effect: Subtle lift without slideshow/slider */
+.sq-gal-item:hover .sq-gal-img {
+  transform: scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 1024px) {
+  .sq-gal-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sq-gal-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sq-gal-title {
+    font-size: 2.5rem;
+  }
+}

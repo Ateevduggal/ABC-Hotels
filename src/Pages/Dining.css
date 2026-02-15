@@ -1,0 +1,915 @@
+/* ================================================================
+GLOBAL & ROOT UTILITIES
+================================================================
+*/
+
+body {
+  background-color: #000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Common button transition used across the page */
+.transition-lift {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* ================================================================
+SECTION 1: HERO SECTION (.dining-hero)
+================================================================
+*/
+
+.dining-hero {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-parallax-bg {
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed; /* Fixed background for parallax effect */
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-overlay-dark {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 800px;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero-sub {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 20px;
+  opacity: 0.9;
+}
+
+.hero-title {
+  font-family: "Playfair Display", serif;
+  font-size: 5rem;
+  margin-bottom: 20px;
+  text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-tagline {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+/* Hero primary action button */
+.book-btn {
+  background: var(--theme-primary);
+  color: white;
+  padding: 18px 40px;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.book-btn:hover {
+  background: var(--accent);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .hero-parallax-bg {
+    background-attachment: scroll; /* Fix mobile parallax bug */
+  }
+
+  .dining-hero {
+    height: 80vh;
+  }
+
+  .hero-title {
+    font-size: 3.2rem;
+  }
+
+  .hero-tagline {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dining-hero {
+    height: 75vh;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-sub {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+  }
+
+  .hero-tagline {
+    font-size: 1rem;
+  }
+
+  .book-btn {
+    padding: 14px 28px;
+    font-size: 0.7rem;
+  }
+}
+
+/* ================================================================
+SECTION 2: CHEF SECTION (.chef-section)
+================================================================
+*/
+
+.chef-section {
+  padding: 3rem;
+  background: #fcfcfc;
+}
+
+.chef-container {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.chef-image-wrapper {
+  position: relative;
+  height: 600px;
+  /* Thick primary color shadow for the brand look */
+  box-shadow: 20px 20px 0px var(--theme-primary);
+}
+
+.chef-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chef-experience-badge {
+  position: absolute;
+  bottom: 30px;
+  right: -20px;
+  background: var(--accent);
+  color: white;
+  padding: 15px 25px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.chef-intro-highlight {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+  font-family: "Playfair Display", serif;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+
+.chef-p {
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+}
+
+.chef-signature {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  color: var(--theme-primary);
+  margin-top: 40px;
+}
+
+@media (max-width: 992px) {
+  .chef-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .chef-image-wrapper {
+    height: 400px;
+    box-shadow: 15px 15px 0px var(--theme-primary);
+  }
+}
+
+@media (max-width: 768px) {
+  .chef-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .chef-image-wrapper {
+    height: 320px;
+    box-shadow: 10px 10px 0px var(--theme-primary);
+  }
+
+  .chef-experience-badge {
+    right: 0;
+    bottom: 20px;
+    font-size: 0.7rem;
+    padding: 10px 18px;
+  }
+
+  .chef-intro-highlight {
+    font-size: 1.2rem;
+  }
+
+  .chef-signature {
+    font-size: 1.5rem;
+  }
+}
+
+/* ================================================================
+SECTION 3: MENU DISCOVERY 
+================================================================
+*/
+
+.menu-discovery {
+  padding: 3rem;
+  background: #ffffff;
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.menu-title {
+  color: var(--theme-primary);
+  margin: 0;
+}
+
+/* Navigation for menu categories */
+.category-scroller {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 80px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.cat-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  padding: 12px 25px;
+  cursor: pointer;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  color: #888;
+  transition: all 0.4s ease;
+  border-radius: 50px;
+}
+
+.cat-btn.active {
+  color: white;
+  background: var(--theme-primary);
+  box-shadow: 0 10px 20px rgba(114, 38, 38, 0.15);
+}
+
+/* 3-Column Premium Dish Grid */
+.dish-grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px 35px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.dish-card-premium {
+  position: relative;
+  background: transparent;
+}
+
+.dish-visuals {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+}
+
+.dish-visuals img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Visual interaction on card hover */
+.dish-card-premium:hover .dish-visuals img {
+  transform: scale(1.1);
+}
+
+.rating-tag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 5px 12px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: 5;
+  color: #1a1a1a;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* The hidden overlay that slides up on hover */
+.sliding-modal {
+  position: absolute;
+  top: 100%; /* Hidden below the card */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: top 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  color: white;
+}
+
+.dish-card-premium:hover .sliding-modal {
+  top: 0; /* Slides into view */
+}
+
+/* Alternating background colors set in JSX */
+.bg-primary {
+  background: var(--theme-primary);
+}
+.bg-accent {
+  background: var(--accent);
+}
+
+.modal-inner h4 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.7rem;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.modal-inner p {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Title and Meta info below the image */
+.dish-info-new {
+  padding-top: 20px;
+}
+
+.dish-title-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 8px;
+}
+
+.dish-name-alt {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  white-space: nowrap;
+}
+
+.dish-line {
+  flex-grow: 1;
+  height: 1px;
+  background: #eeeeee;
+}
+
+.dish-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: #999;
+}
+
+.dish-type {
+  color: var(--accent);
+}
+
+@media (max-width: 1024px) {
+  .category-scroller {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 600px;
+    margin: 40px auto 60px auto;
+    overflow: visible; /* kill horizontal scroll */
+  }
+
+  .cat-btn {
+    width: 100%;
+    white-space: normal; /* prevent nowrap issues */
+  }
+
+  .dish-grid-three {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .dish-visuals {
+    height: 260px;
+  }
+
+  .sliding-modal {
+    padding: 20px;
+  }
+
+  .modal-inner p {
+    font-size: 1rem;
+  }
+
+  .dish-name-alt {
+    font-size: 1.2rem;
+  }
+
+  .category-scroller {
+    grid-template-columns: 1fr;
+  }
+
+  .cat-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .dish-grid-three {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ================================================================
+SECTION 4: CONCIERGE BANNER (.concierge-banner)
+================================================================
+*/
+
+.concierge-banner {
+  background-color: var(--accent);
+  padding: 3rem;
+  text-align: center;
+}
+
+.concierge-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.concierge-text {
+  font-size: 1.8rem;
+  color: white;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.concierge-cta {
+  background: white;
+  color: var(--accent);
+  border: none;
+  padding: 15px 40px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.concierge-cta:hover {
+  background: var(--theme-primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ================================================================
+SECTION 5: PARALLAX EXPERIENCES (.parallax-container)
+================================================================
+*/
+
+.parallax-item {
+  position: relative;
+  height: 200vh; /* Extra height to facilitate long scroll over the image */
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+}
+
+/* Floating quote cards */
+.content-card {
+  position: relative;
+  z-index: 10;
+  width: 350px;
+  padding: 60px;
+  color: white;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Card position helpers */
+.content-card.left {
+  margin-left: 10%;
+}
+
+.content-card.right {
+  margin-left: auto;
+  margin-right: 10%;
+}
+
+.card-name {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 25px;
+  line-height: 1.2;
+}
+
+.card-experience {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
+
+.card-attribution {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .parallax-item {
+    height: 160vh;
+  }
+
+  .content-card {
+    width: 300px;
+    padding: 45px;
+  }
+
+  .card-name {
+    font-size: 1.8rem;
+  }
+
+  .card-experience {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .parallax-item {
+    height: 140vh;
+  }
+
+  .parallax-bg {
+    background-attachment: scroll; /* Only change this for performance */
+  }
+
+  .content-card {
+    width: 50%;
+    padding: 15px;
+  }
+
+  .card-name {
+    font-size: 1.3rem;
+  }
+
+  .card-experience {
+    font-size: 0.85rem;
+  }
+
+  .content-card.left {
+    margin-left: 6%;
+  }
+
+  .content-card.right {
+    margin-right: 6%;
+  }
+}
+
+/* ================================================================
+SECTION 6: BOOKING PANEL (.concierge-panel-section)
+================================================================
+*/
+
+.concierge-panel-section {
+  padding: 6rem 3rem;
+  min-height: 80vh;
+  /* Brand color transition for the booking area */
+  background: linear-gradient(
+    135deg,
+    var(--theme-primary) 0%,
+    var(--theme-secondary) 50%,
+    var(--accent) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.concierge-container {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 4rem;
+  max-width: 1400px;
+  width: 100%;
+}
+
+/* Accordion Schedule (Left Side) */
+.concierge-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.concierge-accordion {
+  background: rgba(0, 0, 0, 0.476);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.concierge-accordion summary {
+  padding: 2rem;
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Visual state for past time slots */
+.concierge-accordion.concluded {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.service-label {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  display: block;
+}
+
+.service-time-range {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.accordion-content {
+  padding: 0 2rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.slot-ledger-row {
+  display: flex;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  align-items: center;
+}
+
+.ledger-time {
+  flex: 0 0 150px;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+}
+
+/* Status coloring */
+.available .ledger-status-text {
+  color: var(--theme-secondary);
+}
+.unavailable .ledger-status-text {
+  color: var(--text-muted);
+}
+
+/* Sophisticated Calendar (Right Side) */
+.calendar-card {
+  background: white;
+  padding: 3rem;
+  color: #333;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.cal-month-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.4rem;
+}
+
+.cal-nav-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--theme-primary);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.cal-weekday {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: #999;
+  padding-bottom: 1rem;
+}
+
+.cal-day {
+  background: none;
+  border: 1px solid #f0f0f0;
+  height: 45px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cal-day.selected {
+  background: var(--theme-primary);
+  color: white;
+  border-color: var(--theme-primary);
+}
+
+.cal-day.disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+  .concierge-panel-section {
+    padding: 4rem 2rem;
+  }
+
+  .concierge-container {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 2.5rem;
+  }
+
+  .calendar-card {
+    padding: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .concierge-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Move calendar to first row */
+  .calendar-card {
+    grid-row: 1;
+  }
+
+  .concierge-left {
+    grid-row: 2;
+  }
+
+  .concierge-panel-section {
+    padding: 3rem 1.5rem;
+  }
+
+  .service-label {
+    font-size: 1.4rem;
+  }
+
+  .ledger-time {
+    flex: 0 0 110px;
+    font-size: 1rem;
+  }
+
+  .calendar-card {
+    padding: 1.5rem;
+  }
+
+  .cal-day {
+    height: 38px;
+    font-size: 0.8rem;
+  }
+}
+
+/* ================================================================
+SECTION 7: CINEMATIC IMAGE BANNER (.image-banner)
+================================================================
+*/
+
+.image-banner {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-img-container {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.68);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-text-large {
+  margin: 0 4rem;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .image-banner {
+    height: 50vh;
+  }
+
+  .banner-text-large {
+    margin: 0 1.5rem;
+    font-size: 1.4rem !important;
+  }
+}

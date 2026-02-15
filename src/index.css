@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap");
+
+:root {
+  /* The Heritage Jewel System */
+  --bg-primary: #fcfbf7;
+  --bg-secondary: #f39494;
+
+  --theme-primary: #722626;
+  --theme-secondary: #8abf9d;
+  --accent: #38774f;
+
+  --text-main: #1a1a1a; /* High-contrast Black for story text */
+  --text-muted: #5c6e60; /* Muted Sage for labels */
+
+  /* Navbar specific logic */
+  --nav-flat-text: #ffffff;
+  --nav-float-bg: #fcfbf7;
+  --nav-float-text: #1a1a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  /* Use 'will-change' to tell the browser to optimize for color changes */
+  will-change: background-color, color;
+  transition: background-color 0.4s ease-out;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+.logo {
+  font-family: "Playfair Display", serif;
+}
+
+h2 {
+  font-size: 3rem;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

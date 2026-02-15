@@ -1,0 +1,299 @@
+/* ============================================================
+   1. BASE NAVBAR STRUCTURE
+   ============================================================ */
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ============================================================
+   2. NAVBAR STATES (TOP & SCROLLED)
+   ============================================================ */
+
+.navbar-flat {
+  padding: 1.5rem 10%;
+  background: transparent;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-float {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  padding: 0.8rem 2.5rem;
+  background: var(--nav-float-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 50px;
+  border: 1px solid rgba(114, 38, 38, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  color: var(--text-main);
+}
+
+/* ============================================================
+   3. LOGO
+   ============================================================ */
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.1rem;
+}
+
+/* ============================================================
+   4. NAVIGATION LINKS (DESKTOP DEFAULT)
+   ============================================================ */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: inherit;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* ============================================================
+   5. DROPDOWN SYSTEM (DESKTOP)
+   ============================================================ */
+
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 15px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+/* Smooth animated dropdown (desktop) */
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background: var(--bg-primary);
+  min-width: 220px;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  padding: 15px 0;
+  z-index: 1001;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.nav-dropdown.active .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu a {
+  padding: 12px 25px;
+  text-transform: none;
+  font-size: 0.9rem;
+  margin: 0;
+  color: var(--text-main);
+}
+
+/* ============================================================
+   6. CTA BUTTON
+   ============================================================ */
+
+.cta-btn {
+  background: var(--theme-primary);
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 4rem;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  background: var(--accent);
+}
+
+/* ============================================================
+   7. HAMBURGER ICON
+   ============================================================ */
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+/* ============================================================
+   8. TABLET VIEW (≤1024px)
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .navbar-flat {
+    padding: 1rem 5%;
+  }
+
+  .navbar-float {
+    width: 95%;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .nav-links a,
+  .dropdown-trigger {
+    font-size: 0.75rem;
+  }
+
+  .cta-btn {
+    padding: 10px 22px;
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================================
+   9. MOBILE VIEW (≤768px)
+   Glass ONLY inside active drawer
+   ============================================================ */
+
+/* ============================================================
+   9. MOBILE VIEW (≤768px)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.2rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-logo {
+    justify-self: center;
+  }
+
+  .desktop-cta {
+    padding: 8px 16px;
+    font-size: 0.7rem;
+  }
+
+  /* ================================
+     MOBILE DRAWER
+  ================================= */
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1.5rem 1.5rem 2rem 1.5rem; /* reduced vertical padding */
+
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    background: rgba(20, 20, 20, 0.726);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  /* All main links */
+  .nav-links > a,
+  .dropdown-trigger {
+    padding: 0.9rem 0;
+    width: 100%;
+    font-size: 1rem;
+    color: #ffffff;
+  }
+
+  /* ================================
+     MOBILE DROPDOWN
+  ================================= */
+  .nav-dropdown {
+    width: 100%;
+    height: 0;
+  }
+
+  .dropdown-trigger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    background: transparent;
+    box-shadow: none;
+
+    margin: 0;
+    padding: 0 0 0 1rem; /* clean indent */
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+
+  .nav-dropdown.active .dropdown-menu {
+    max-height: 150px;
+    opacity: 1;
+  }
+
+  .dropdown-menu a {
+    padding: 0.6rem 0;
+    font-size: 0.95rem;
+    display: block;
+    margin: 0;
+    color: #ffffff;
+  }
+}
