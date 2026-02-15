@@ -880,16 +880,7 @@
 
 @media (max-width: 1024px) {
   .room-block {
-    border: 2px solid red;
     min-height: 100px;
-  }
-
-  .room-info {
-    border: 2px solid yellow;
-  }
-
-  .room-visual {
-    border: 2px solid blue;
   }
 }
 
